@@ -1,1 +1,2 @@
 # IMG420-Assignment2
+For this assignment, I extended the Sprite2D using Gdextension into what I named banana_peel. The methods used were  area2d_entered and On_player_collide. On_player_collide has a signal that connects it to the player node in Godot. This causes the player to be stunned for 3 seconds, losing the valuable time needed to complete the level. This also causes the banana peel to disappear.  
