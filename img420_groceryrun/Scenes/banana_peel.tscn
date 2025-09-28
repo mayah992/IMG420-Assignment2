@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://qwutq2x6e3jg"]
+
+[ext_resource type="Script" uid="uid://grii0qlpb8ny" path="res://Scripts/banana_peel.gd" id="1_simd1"]
+[ext_resource type="Texture2D" uid="uid://cu5cot46m4bgk" path="res://Assets/Food/food.png" id="2_5wlmn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_401yk"]
+radius = 4.12311
+
+[node name="BananaPeel" type="BananaPeel"]
+time_penalty = 3.0
+script = ExtResource("1_simd1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_401yk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5wlmn")
+hframes = 4
+frame = 3
+
+[connection signal="player_slipped" from="." to="." method="_on_player_slipped"]
