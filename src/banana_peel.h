@@ -37,7 +37,7 @@ namespace godot
 			~BananaPeel();
 
 			void _ready();
-			void on_player_collide(Node2D* player);
+			void on_player_collide(Object* player);
 			void _on_area_body_entered(Object* body);
 			
 			void _on_reset_obstacles(); // Respond to signal

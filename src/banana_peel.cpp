@@ -47,28 +47,31 @@ void BananaPeel::_ready()
     Area2D* area = get_node<Area2D>(NodePath("Area2D"));
     if (area) 
     {
-        area->connect("body_entered", Callable(this, "on_player_collide"));
+    UtilityFunctions::print("debug 1");
+    area->connect("body_entered", Callable(this, "_on_area_body_entered"));
     }
 }
 
 void BananaPeel::_on_area_body_entered(Object* body) 
 {
+    UtilityFunctions::print("debug 2");
     Node2D* player = Object::cast_to<Node2D>(body);
     if (player) {
         on_player_collide(player);
     }
 }
 
-void BananaPeel::on_player_collide(Node2D* player) 
+void BananaPeel::on_player_collide(Object* player) 
 {
     if (used && !is_reusable) return;
-
+    UtilityFunctions::print("debug 3");
     emit_signal("player_slipped", time_penalty);
     UtilityFunctions::print("Player slipped on banana!");
 
     used = true;
     if (!is_reusable) 
     {
+        UtilityFunctions::print("debug 4");
         hide();
     }
 }

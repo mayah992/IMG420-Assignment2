@@ -87,7 +87,4 @@ autoplay = true
 [node name="BananaPeel" parent="." instance=ExtResource("9_m3lqc")]
 position = Vector2(168, 80)
 
-[node name="BananaPeel2" parent="." instance=ExtResource("9_m3lqc")]
-position = Vector2(168, 161)
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

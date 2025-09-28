@@ -21,16 +21,15 @@ var stun_duration = 0.0
 func _ready() -> void:
 	# banana
 	var banana_peel = $"../BananaPeel"
-	banana_peel.connect("player_slipped", Callable(self, "_on_player_slipped"))
-	
+	banana_peel.connect("player_slipped", Callable(self, "_on_banana_peel_player_slipped"))
 	# initialize state machine
 	state_machine.Initialize(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if stunned:
-		stun_duration -= _delta
+		stun_duration -= delta
 		if stun_duration <= 0:
 			stunned = false
 			print("Player is no longer stunned")
@@ -115,9 +114,11 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area == current_item:
 		current_item = null
 		
-# banana stun
-func _on_player_slipped(penalty):
+
+func _on_banana_peel_player_slipped(penalty: float) -> void:
 	# penalty could be the stun duration here
 	stunned = true
 	stun_duration = penalty
+	#set velocity to zero
+	direction=Vector2.ZERO
 	print("Player stunned for ", stun_duration, " seconds")

@@ -1,0 +1,6 @@
+res://Scenes/banana_peel.tscn
+res://Scripts/banana_peel.gd
+res://Scenes/main_menu.tscn
+res://Player/Scene/player.tscn
+res://Scenes/playground.tscn
+res://Player/Sprite/player.gd
